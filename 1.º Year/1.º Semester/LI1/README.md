@@ -2,11 +2,43 @@
 
 ## Overview
 
-Welcome to the Computer Science Labs I repository! This project is an exciting recreation of the classic Donkey Kong game, featuring a nostalgic gaming experience along with a hidden secret mode. To unlock the secret mode, simply press the keys S, T, A, and R simultaneously.
+Welcome to the Computer Science Labs I repository! This project is an exciting recreation of the classic Donkey Kong game, offering a nostalgic gaming experience.
+
+### Instructions
+
+- **Menu Navigation:**
+  - Use the arrow keys (←, →, ↑, ↓) to navigate through menus.
+
+- **Movement Controls:**
+  - Utilize the following keys for in-game movement:
+    - W: Move upward
+    - A: Move leftward
+    - S: Move downward
+    - D: Move rightward
+
+ - **Unlocking Secret Mode (PrimateKong+):**
+   - Press the keys S, T, A, and R simultaneously on the main menu to access the hidden secret mode.
 
 ## Contributors
 
 * Ricardo Morais
+
+## Image Gallery
+
+<div align="center">
+  <img src="lib/Resources/Screenshots/1.png" alt="s1" width="240" height="350">
+  <img src="lib/Resources/Screenshots/2.png" alt="s2" width="240" height="350">
+  <img src="lib/Resources/Screenshots/3.png" alt="s3" width="240" height="350">
+  <img src="lib/Resources/Screenshots/4.png" alt="s4" width="240" height="350">
+  <!-- Add more images as needed -->
+</div>
+
+## Prerequisites
+
+Before you can run this project, make sure you have both Cabal and the Glasgow Haskell Compiler (GHC) installed on your machine. If you don't have them installed, you can download and install them from the following official websites:
+
+- Cabal: [Cabal Downloads](https://www.haskell.org/cabal/download.html)
+- GHC: [GHC Downloads](https://www.haskell.org/ghc/download.html)
 
 ## Executable
 
