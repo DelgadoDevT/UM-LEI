@@ -35,10 +35,11 @@ Welcome to the Computer Science Labs I repository! This project is an exciting r
 
 ## Prerequisites
 
-Before you can run this project, make sure you have both Cabal and the Glasgow Haskell Compiler (GHC) installed on your machine. If you don't have them installed, you can download and install them from the following official websites:
+Before running this project, ensure that you have both Cabal and the Glasgow Haskell Compiler (GHC) installed on your machine. If you haven't installed them yet, you can conveniently download and install both using GHCup, which is available at: 
 
-- Cabal: [Cabal Downloads](https://www.haskell.org/cabal/download.html)
-- GHC: [GHC Downloads](https://www.haskell.org/ghc/download.html)
+- GHCup : [GHCup Download](https://www.haskell.org/ghcup/)
+
+Make sure to follow the instructions provided on the website to complete the installation correctly.
 
 ## Executable
 
