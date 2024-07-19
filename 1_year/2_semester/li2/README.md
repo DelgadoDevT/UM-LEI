@@ -14,6 +14,6 @@ This project is an implementation of an adaptation of the Vietnamese game “Tie
 
 ## Contributors
 
-* [Ricardo Morais](https://github.com/RIIverByte)
-* [Simão Mendes](https://github.com/PaoTheMagicalDev)
+* [RIIverByte](https://github.com/RIIverByte)
+* [PaoTheMagicalDev](https://github.com/PaoTheMagicalDev)
 
