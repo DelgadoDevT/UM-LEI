@@ -21,7 +21,7 @@ Welcome to the Computer Science Labs I repository! This project is an exciting r
 
 ## Contributors
 
-* Ricardo Morais
+* [Ricardo Morais](https://github.com/RIIverByte)
 
 ## Image Gallery
 
