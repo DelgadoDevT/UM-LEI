@@ -1,0 +1,3 @@
+# Ignore Makefile language detection
+Makefile linguist-language=ignore
+*.mk linguist-language=ignore
