@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project involves the development of a music streaming system, where data related to songs, artists, users, and system usage statistics is managed. The system loads this data into appropriate memory structures and uses it to respond to various queries. The project emphasises modular programming in C, with a focus on separating code into interface (`.h`) and implementation (`.c`) components, while also incorporating tools for debugging and memory usage analysis.
+This project involves the development of a music streaming system in the language C, that manages data related to songs, artists, users, albums, history and system usage statistics. The system encapsulates this data into appropriate memory structures and uses it to respond to various queries. The project places a strong emphasis on encapsulation and modularity, with a focus on separating code into interface (`.h`) and implementation (`.c`) components.
 
 ## Contributors
 
