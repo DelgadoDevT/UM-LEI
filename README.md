@@ -7,6 +7,9 @@ This repository serves as a comprehensive compilation of academic work undertake
 ### 1st Year - 1st Semester
 - [Function Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/1_semester/pf)
 - [Computer Science Labs I](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/1_semester/li1)
-### 1st Year - 2st Semester
+### 1st Year - 2nd Semester
 - [Imperative Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/2_semester/pi)
 - [Computer Science Labs II](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/2_semester/li2)
+### 2nd Year - 1st Semester
+- [Algorithms and Complexity](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/1_semester/algc)
+- [Computer Science Labs III](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/1_semester/li3)
