@@ -50,7 +50,7 @@ Performs a parallel search across all documents using multiple processes (contro
 ./bin/dclient -s "keyword" "nr_processes"
 ```
 
-### 🛑 Shutdown Server (`-f`)
+### Shutdown Server (`-f`)
 Safely shuts down the server, persisting current state and freeing resources.
 
 ```bash
