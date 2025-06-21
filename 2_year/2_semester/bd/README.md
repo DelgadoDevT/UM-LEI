@@ -8,6 +8,7 @@ The system is built using **MySQL** for the final database implementation and **
 
 ## Contributors
 
+* [DelgadoDevT](https://github.com/DelgadoDevT)
 * [PaoComPlanta](https://github.com/paocomplanta)
 * [xfn14](https://github.com/xfn14)
 * [inesferribeiro](https://github.com/inesferribeiro)
