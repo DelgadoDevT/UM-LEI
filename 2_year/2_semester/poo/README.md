@@ -30,14 +30,11 @@ Although SpotifUM does **not actually play music**, it simulates playback and in
 
 Below are some screenshots of the **SpotifUM** app in action:
 
-1. **User Registration**  
-   ![User Registration](screenshots/admin_menu.png)
-
-2. **Playlists List**  
-   ![Playlists List](screenshots/music_list.png)
-
-3. **User Menu**  
-   ![User Playlist](screenshots/user_playlist.png)
+<div align="center">
+  <img src="screenshots/age_validation.png" alt="s1" width="300" height="300">
+  <img src="screenshots/list_playlist.png" alt="s2" width="300" height="300">
+  <img src="screenshots/menu_user.png" alt="s3" width="300" height="300">
+</div>
 
 ## How to Run
 
