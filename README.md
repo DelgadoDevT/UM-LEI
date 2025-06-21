@@ -13,3 +13,7 @@ This repository serves as a comprehensive compilation of academic work undertake
 ### 2nd Year - 1st Semester
 - [Algorithms and Complexity](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/1_semester/algc)
 - [Computer Science Labs III](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/1_semester/li3)
+### 2nd Year - 2nd Semester
+- [Databases](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/bd)
+- [Object-Oriented Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/poo)
+- [Operating Systems](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/so)
