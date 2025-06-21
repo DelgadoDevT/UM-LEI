@@ -6,6 +6,7 @@ This project involves the development of a music streaming system in the languag
 
 ## Contributors
 
+* [DelgadoDevT](https://github.com/DelgadoDevT)
 * [PaoComPlanta](https://github.com/paocomplanta)
 * [ItzPedrOfficial](https://github.com/ItzPedrOfficial)
 
