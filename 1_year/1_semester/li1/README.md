@@ -4,11 +4,6 @@
 
 Welcome to the Computer Science Labs I repository! This project is an exciting recreation of the classic Donkey Kong game, offering a nostalgic gaming experience.
 
-## Contributors
-
-* [DelgadoDevT](https://github.com/DelgadoDevT)
-* [RIIverByte](https://github.com/RIIverByte)
-
 ### Instructions
 
 - **Menu Navigation:**
@@ -23,6 +18,11 @@ Welcome to the Computer Science Labs I repository! This project is an exciting r
 
  - **Unlocking Secret Mode (PrimateKong+):**
    - Press the keys S, T, A, and R simultaneously on the main menu to access the hidden secret mode.
+  
+## Contributors
+
+* [DelgadoDevT](https://github.com/DelgadoDevT)
+* [RIIverByte](https://github.com/RIIverByte)
 
 ## Image Gallery
 
