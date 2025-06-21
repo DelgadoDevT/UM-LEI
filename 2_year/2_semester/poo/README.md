@@ -8,6 +8,7 @@ Although SpotifUM does **not actually play music**, it simulates playback and in
 
 ## Contributors
 
+* [DelgadoDevT](https://github.com/DelgadoDevT)
 * [PaoComPlanta](https://github.com/paocomplanta)
 * [SirLordNelson](https://github.com/sirlordnelson)
 
