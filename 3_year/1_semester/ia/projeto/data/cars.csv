@@ -1,0 +1,6 @@
+plate;model;engine_type;max_autonomy_km;passenger_capacity;operational_cost_per_km;ecological_cost_per_km;initial_node_id
+UM-01-AA;Tesla Model 3;ELETRICO;450;4;0.12;0.8;213733753
+UM-02-BB;Toyota Corolla;COMBUSTAO;600;4;0.18;1.1;235533061
+UM-03-CC;Mercedes Vito;COMBUSTAO;800;7;0.25;1.3;253471899
+UM-04-DD;Nissan Leaf (Velho);ELETRICO;150;4;0.1;0.5;275977161
+UM-05-EE;Porsche Taycan;ELETRICO;400;2;0.5;0.6;518783883

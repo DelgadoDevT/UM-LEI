@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 id="title">My Todo List</h1>
+      <!-- Alínea 2: output da data do dia de hoje -->
+      <h3 id="list-date" class="subtitle">{{ today }}</h3>
+      <div class="container">
+        <!-- Alínea 5: adicionar evento para submit -->
+        <form id="todo-form" @submit.prevent="submitTodo">
+          <label class="input-label" for="task-input">Task</label>
+          <div class="input-container">
+            <!-- Alínea 4: controlar o atributo value e adicionar
+                 evento input -->
+            <input 
+              v-model="enteredTodo"
+              id="task-input" 
+              class="text-input" 
+              name="task-input" 
+              type="text"
+              >
+            <button class="button" type="submit" :disabled="isAddDisabled">Add Todo</button>
+          </div>
+        </form>
+        <ul id="todo-list" v-if="todos.length > 0">
+          <!-- Alínea 3: retire os comentários da <li> abaixo
+               e adicione as diretivas vue para renderizar a lista -->
+          <li class="todo-list-item" v-for="(element, index) in todos" :key="index">
+            <p>{{element}}</p>
+            <button @click="deleteTodo(index)">Delete</button>
+          </li>
+        </ul>
+  
+        <!-- Alínea 7: crie um elemento <h3> 
+             e adicione as diretivas necessárias a este elemento
+             e à lista <ul> acima -->
+          <h3 v-else class = "subtitle no-todos">No todos for today!</h3>
+      </div>
+    </div>
+
+    <script src="todo.js"></script>
+  </body>
+</html>

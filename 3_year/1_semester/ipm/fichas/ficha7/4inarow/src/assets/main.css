@@ -1,0 +1,20 @@
+:root {
+  --color-accent: #000;
+  --color-light: #fff;
+  --color-yellow: #FFDE03;
+  --color-red: #FF0266;
+  --color-primary: #4357A0;
+  --color-primary-dark: #001773;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: white;
+}

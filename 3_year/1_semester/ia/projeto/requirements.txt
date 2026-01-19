@@ -1,0 +1,10 @@
+requests
+osmnx
+numpy
+pandas
+matplotlib
+networkx
+folium
+rich
+sphinx
+sphinx-rtd-theme

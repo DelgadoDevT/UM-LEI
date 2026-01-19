@@ -1,0 +1,25 @@
+{
+  "name": "inside-airbnb-analytics",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "json-server --watch public/db.json --port 3001",
+    "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
+    "preview:full": "npm run build && concurrently \"npm run server\" \"npm run preview\""
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "leaflet.heat": "^0.2.0",
+    "leaflet.markercluster": "^1.5.3",
+    "vue": "^3.3.0",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "concurrently": "^8.2.0",
+    "json-server": "^0.17.4",
+    "vite": "^4.0.0"
+  }
+}

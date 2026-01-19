@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>RestaurantChain DSS - System Overview</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #7f8c8d;
+        }
+        .architecture-diagram {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .layer {
+            margin: 10px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .layer-ui {
+            border-left: 4px solid #e74c3c;
+        }
+        .layer-ln {
+            border-left: 4px solid #f39c12;
+        }
+        .layer-dl {
+            border-left: 4px solid #27ae60;
+        }
+        .pattern-list {
+            background-color: #fff9e6;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+        .feature-card h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .tech-stack {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        ul {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🍽️ RestaurantChain DSS - Management System</h1>
+
+<p><strong>Version:</strong> 1.0-SNAPSHOT<br>
+<strong>Course:</strong> DSS (Desenvolvimento de Sistemas de Software) 2025/26<br>
+<strong>Group:</strong> Group 8</p>
+
+<p>
+    Comprehensive restaurant chain management system for handling multiple restaurants,
+    menus, orders, employees, inventory, and performance indicators.
+    Built with Java following enterprise architecture patterns and best practices.
+</p>
+
+<h2>📐 Architecture Overview</h2>
+
+<div class="architecture-diagram">
+    <h3>3-Layer Architecture</h3>
+    <p>The system follows a clean separation of concerns using a layered architecture pattern:</p>
+
+    <div class="layer layer-ui">
+        <h4>🖥️ Presentation Layer (UI)</h4>
+        <p><strong>Package:</strong> <code>dss.cadeiaRestaurantesUI</code></p>
+        <p>
+            Console-based user interface implementing MVC pattern.
+            Handles user interactions, displays menus, and presents information.
+        </p>
+        <ul>
+            <li><code>CadeiaRestaurantesView</code> - View component</li>
+            <li><code>CadeiaRestaurantesController</code> - Controller component</li>
+        </ul>
+    </div>
+
+    <div class="layer layer-ln">
+        <h4>⚙️ Business Logic Layer (LN)</h4>
+        <p><strong>Package:</strong> <code>dss.cadeiaRestaurantesLN</code></p>
+        <p>
+            Core business logic and domain model. Implements business rules,
+            orchestrates workflows, and coordinates between subsystems.
+        </p>
+        <ul>
+            <li><code>CadeiaRestaurantesLNFacade</code> - Main facade</li>
+            <li><code>subsistemaRestaurantes</code> - Restaurant &amp; employee management</li>
+            <li><code>subsistemaMenuPedidos</code> - Menu &amp; order management</li>
+        </ul>
+    </div>
+
+    <div class="layer layer-dl">
+        <h4>💾 Data Access Layer (DL)</h4>
+        <p><strong>Package:</strong> <code>dss.cadeiaRestaurantesDL</code></p>
+        <p>
+            Database operations using DAO pattern with MariaDB.
+            Handles persistence, CRUD operations, and data mapping.
+        </p>
+        <ul>
+            <li><code>RestauranteDAO</code>, <code>FuncionarioDAO</code>, <code>MenuDAO</code></li>
+            <li><code>ProdutoDAO</code>, <code>IngredienteDAO</code>, <code>PedidoDAO</code></li>
+            <li><code>IndicadorDAO</code> - Performance metrics</li>
+        </ul>
+    </div>
+</div>
+
+<h2>🎯 Design Patterns</h2>
+
+<div class="pattern-list">
+    <ul>
+        <li><strong>Facade Pattern</strong> -
+            <code>CadeiaRestaurantesLNFacade</code>, <code>RestaurantesFacade</code>, <code>MenuPedidosFacade</code>
+            <br>Simplifies access to complex subsystems with unified interfaces.
+        </li>
+        <li><strong>DAO Pattern</strong> - All <code>*DAO</code> classes
+            <br>Abstracts and encapsulates database access operations.
+        </li>
+        <li><strong>Singleton Pattern</strong> - DAO <code>getInstance()</code> methods
+            <br>Ensures single instance of data access objects.
+        </li>
+        <li><strong>MVC Pattern</strong> - View/Controller separation
+            <br>Separates presentation from business logic and data.
+        </li>
+        <li><strong>Subsystem Pattern</strong> - Modular organization
+            <br>Logically groups related functionality into cohesive subsystems.
+        </li>
+    </ul>
+</div>
+
+<h2>🌟 Key Features</h2>
+
+<div class="feature-grid">
+    <div class="feature-card">
+        <h4>🏢 Restaurant Management</h4>
+        <ul>
+            <li>Multi-location support</li>
+            <li>Staff assignment</li>
+            <li>Workstation organization</li>
+            <li>Inventory tracking</li>
+        </ul>
+    </div>
+
+    <div class="feature-card">
+        <h4>📋 Menu &amp; Products</h4>
+        <ul>
+            <li>Dynamic menu composition</li>
+            <li>Product categorization</li>
+            <li>Ingredient management</li>
+            <li>Allergen tracking</li>
+        </ul>
+    </div>
+
+    <div class="feature-card">
+        <h4>🛒 Order Processing</h4>
+        <ul>
+            <li>Multi-item orders</li>
+            <li>Order state tracking</li>
+            <li>Custom notes per item</li>
+            <li>Multiple consumption types</li>
+        </ul>
+    </div>
+
+    <div class="feature-card">
+        <h4>💳 Payment Processing</h4>
+        <ul>
+            <li>Multiple payment methods</li>
+            <li>Card payments</li>
+            <li>Cash handling</li>
+            <li>Transaction tracking</li>
+        </ul>
+    </div>
+
+    <div class="feature-card">
+        <h4>👥 Employee Management</h4>
+        <ul>
+            <li>Role assignments</li>
+            <li>Workstation allocation</li>
+            <li>Task distribution</li>
+            <li>Performance tracking</li>
+        </ul>
+    </div>
+
+    <div class="feature-card">
+        <h4>📊 Performance Analytics</h4>
+        <ul>
+            <li>Daily KPI tracking</li>
+            <li>Revenue monitoring</li>
+            <li>Order volume metrics</li>
+            <li>Preparation time analysis</li>
+        </ul>
+    </div>
+</div>
+
+<h2>🛠️ Technology Stack</h2>
+
+<div class="tech-stack">
+    <ul>
+        <li><strong>Language:</strong> Java 21</li>
+        <li><strong>Build Tool:</strong> Gradle 8.x</li>
+        <li><strong>Database:</strong> MariaDB 10.x+</li>
+        <li><strong>JDBC Driver:</strong> MariaDB Connector/J 3.5.6</li>
+        <li><strong>Testing:</strong> JUnit 5</li>
+        <li><strong>Documentation:</strong> Javadoc</li>
+    </ul>
+</div>
+
+<h2>📦 Package Structure</h2>
+
+<pre>
+dss
+├── Application.java                       (Main entry point)
+├── cadeiaRestaurantesDL/                  (Data Access Layer)
+│   ├── DAOConfig.java                     (Database configuration)
+│   ├── RestauranteDAO.java               (Restaurant data access)
+│   ├── FuncionarioDAO.java               (Employee data access)
+│   ├── MenuDAO.java                      (Menu data access)
+│   ├── ProdutoDAO.java                   (Product data access)
+│   ├── IngredienteDAO.java               (Ingredient data access)
+│   ├── PedidoDAO.java                    (Order data access)
+│   └── IndicadorDAO.java                 (Performance indicator data access)
+├── cadeiaRestaurantesLN/                  (Business Logic Layer)
+│   ├── CadeiaRestaurantesLNFacade.java   (Main business facade)
+│   ├── ICadeiaRestaurantesLN.java        (Business logic interface)
+│   ├── subsistemaRestaurantes/           (Restaurant subsystem)
+│   │   ├── RestaurantesFacade.java       (Restaurant facade)
+│   │   ├── IGestRestaurantes.java        (Restaurant interface)
+│   │   ├── Restaurante.java              (Restaurant entity)
+│   │   ├── Funcionario.java              (Employee entity)
+│   │   ├── Posto.java                    (Workstation entity)
+│   │   └── IndicadorDesempenho.java      (Performance indicator entity)
+│   └── subsistemaMenuPedidos/            (Menu &amp; order subsystem)
+│       ├── MenuPedidosFacade.java        (Menu facade)
+│       ├── IGestMenuPedidos.java         (Menu interface)
+│       ├── Menu.java                     (Menu entity)
+│       ├── Produto.java                  (Product entity)
+│       ├── Ingrediente.java              (Ingredient entity)
+│       ├── Pedido.java                   (Order entity)
+│       ├── LinhaDePedido.java            (Order line entity)
+│       ├── Pagamento.java                (Payment entity)
+│       ├── Estado.java                   (Order state enum)
+│       └── Tamanho.java                  (Product size enum)
+└── cadeiaRestaurantesUI/                  (Presentation Layer)
+    ├── CadeiaRestaurantesView.java        (UI View component)
+    └── CadeiaRestaurantesController.java  (UI Controller component)
+</pre>
+
+<h2>🚀 Getting Started</h2>
+
+<h3>Prerequisites</h3>
+<ul>
+    <li>Java JDK 21 or higher</li>
+    <li>MariaDB 10.x or higher</li>
+    <li>Gradle (wrapper included)</li>
+</ul>
+
+<h3>Quick Start</h3>
+<ol>
+    <li>Set up MariaDB database (see <code>mariadb/database_creation.sql</code>)</li>
+    <li>Build the project: <code>./gradlew build</code></li>
+    <li>Run the application: <code>./gradlew run</code></li>
+    <li>Generate documentation: <code>./gradlew javadoc</code></li>
+</ol>
+
+<h2>📚 Documentation</h2>
+
+<p>
+    This Javadoc documentation provides comprehensive API reference for all packages, classes, and methods.
+    Use the navigation above to browse:
+</p>
+<ul>
+    <li><strong>Packages:</strong> View all packages and their descriptions</li>
+    <li><strong>Classes:</strong> Browse all classes with detailed documentation</li>
+    <li><strong>Index:</strong> Alphabetical index of all elements</li>
+    <li><strong>Tree:</strong> Class hierarchy visualization</li>
+    <li><strong>Search:</strong> Quick search functionality for finding specific elements</li>
+</ul>
+
+<h2>👥 Development Team</h2>
+
+<p>
+    <strong>Group 8 - DSS Course 2025/26</strong><br>
+    Universidade do Minho<br>
+    Mestrado em Engenharia Informática
+</p>
+
+<h2>📄 License</h2>
+
+<p>
+    This project is developed for educational purposes as part of the
+    Software Systems Development (DSS) course at Universidade do Minho.
+</p>
+
+<hr>
+
+<p style="text-align: center; color: #7f8c8d; margin-top: 40px;">
+    <small>Generated with Javadoc - Last updated: December 27, 2025</small>
+</p>
+
+</body>
+</html>
+

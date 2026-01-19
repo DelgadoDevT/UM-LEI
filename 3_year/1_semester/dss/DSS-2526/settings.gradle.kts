@@ -1,0 +1,1 @@
+rootProject.name = "DSS-2526"

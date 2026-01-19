@@ -1,0 +1,100 @@
+{
+  "statistics": [
+    {
+      "id": "1",
+      "red": 1,
+      "yellow": 2,
+      "draw": 0
+    }
+  ],
+  "games": [
+    {
+      "id": "4366",
+      "game": {
+        "board": [
+          [
+            false
+          ],
+          [
+            true,
+            true,
+            true
+          ],
+          [
+            true,
+            false,
+            true,
+            false,
+            false
+          ],
+          [
+            true
+          ],
+          [
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          [
+            false
+          ],
+          [
+            false,
+            false,
+            false
+          ]
+        ],
+        "player": false,
+        "winner": 0,
+        "isOver": true
+      },
+      "date": "2025-04-22T09:27:07.090Z"
+    },
+    {
+      "id": "337e",
+      "game": {
+        "board": [
+          [
+            true
+          ],
+          [
+            true,
+            false,
+            true
+          ],
+          [
+            false,
+            false
+          ],
+          [
+            true,
+            false
+          ],
+          [
+            true,
+            false
+          ],
+          [
+            true
+          ],
+          [
+            false
+          ]
+        ],
+        "player": true,
+        "winner": 1,
+        "isOver": true
+      },
+      "date": "2025-11-14T10:50:30.172Z"
+    }
+  ],
+  "simulation": [
+    {
+      "id": "1",
+      "startPlayer": true,
+      "plays": []
+    }
+  ]
+}

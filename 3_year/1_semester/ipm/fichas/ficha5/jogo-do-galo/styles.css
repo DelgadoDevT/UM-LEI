@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+}
+
+/* 2) Centrar grelha horizontalmente e verticalmente */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+/* 1a) Estilos da grelha */
+#board {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+/* 1b) Centrar texto em cada cedula */
+.slot {
+    display: flex;
+    justify-content: center; /* Centrar na horizontal */
+    align-items: center; /* Centrar na vertical */
+    font-size: 60px;
+
+    /* 1d) as linhas da grelha devem ser pretas */
+    border: 2px solid white;
+
+    cursor: pointer;
+}
+
+/* 1c) Mudar a cor da cedula em hove */
+.slot:hover {
+    background-color: whitesmoke;
+}
+
+button {
+    margin-top: 20px;
+    background-color: whitesmoke;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 8px 10px;
+}
