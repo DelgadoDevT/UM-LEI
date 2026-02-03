@@ -451,8 +451,8 @@ go vet ./...
 
 **Group 4 - PL5**
 
-- João Delgado (A106836) - [GitHub](https://github.com/DelgadoDevT)
-- Nelson Mendes (A106884) - [GitHub](https://github.com/SirLordNelson)
-- Simão Mendes (A106928) - [GitHub](https://github.com/PaoComPlanta)
+- DelgadoDevT - [GitHub](https://github.com/DelgadoDevT)
+- SirLordNelson - [GitHub](https://github.com/SirLordNelson)
+- PaoComPlanta - [GitHub](https://github.com/PaoComPlanta)
 
 *Universidade do Minho, 2025*
