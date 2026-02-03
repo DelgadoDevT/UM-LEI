@@ -17,3 +17,10 @@ This repository serves as a comprehensive compilation of academic work undertake
 - [Databases](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/bd)
 - [Object-Oriented Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/poo)
 - [Operating Systems](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/so)
+### 3nd Year - 1st Semester
+- [Computer Communications](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/cc)
+- [Software Systems Development](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/dss)
+- [Artificial Intelligence](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/ia)
+- [Human-Computer Interaction](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/ipm) 
+- [Distributed Systems](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/sd)
+- [Program Design by Calculation](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/cp)
