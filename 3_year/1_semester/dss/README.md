@@ -446,26 +446,22 @@ java -version  # Should be 21+
 <table>
 <tr>
 <td align="center">
-<a href="https://github.com/DelgadoDevT">
-<img src="https://github.com/DelgadoDevT.png" width="100px;" alt="DelgadoDevT"/><br />
-<sub><b>João Pedro Delgado Teixeira</b></sub><br />
-<sub>A106836</sub>
+<a href="https://github.com/PaoComPlanta">
+<img src="https://github.com/PaoComPlanta.png" width="100px;" alt="PaoComPlanta"/><br />
+<sub><b>PaoComPlanta</b></sub>
 </a>
 </td>
 <td align="center">
-<a href="https://github.com/PaoComPlanta">
-<img src="https://github.com/PaoComPlanta.png" width="100px;" alt="PaoComPlanta"/><br />
-<sub><b>Simão Pedro Pacheco Mendes</b></sub><br />
-<sub>A106928</sub>
+<a href="https://github.com/DelgadoDevT">
+<img src="https://github.com/DelgadoDevT.png" width="100px;" alt="DelgadoDevT"/><br />
+<sub><b>DelgadoDevT</b></sub>
 </a>
 </td>
 <td align="center">
 <a href="https://github.com/SirLordNelson">
 <img src="https://github.com/SirLordNelson.png" width="100px;" alt="SirLordNelson"/><br />
-<sub><b>Nelson Manuel Rocha Mendes</b></sub><br />
-<sub>A106884</sub>
+<sub><b>SirLordNelson</b></sub>
 </a>
-</td>
 </tr>
 </table>
 
