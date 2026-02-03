@@ -7,7 +7,7 @@ This project, developed for the Operating Systems course at University of Minho,
 
 Communication between the `dclient` (client) and `dserver` (server) is handled via **named pipes (FIFOs)** to ensure asynchronous, isolated, and scalable interactions.
 
-## Contributors
+## Authors
 
 - [DelgadoDevT](https://github.com/DelgadoDevT)
 - [PaoComPlanta](https://github.com/PaoComPlanta)
