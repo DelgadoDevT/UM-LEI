@@ -12,7 +12,7 @@ This project is an implementation of an adaptation of the Vietnamese game “Tie
 * Task4 - Generate all possible moves based on the current state.
 * Task5 - A bot to select and execute the best move.
 
-## Contributors
+## Authors
 
 * [DelgadoDevT](https://github.com/DelgadoDevT)
 * [RIIverByte](https://github.com/RIIverByte)
