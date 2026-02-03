@@ -6,7 +6,7 @@
 
 Although SpotifUM does **not actually play music**, it simulates playback and interactions by printing relevant information to the terminal.
 
-## Contributors
+## Authors
 
 * [DelgadoDevT](https://github.com/DelgadoDevT)
 * [PaoComPlanta](https://github.com/paocomplanta)
