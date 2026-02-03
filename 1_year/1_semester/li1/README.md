@@ -19,7 +19,7 @@ Welcome to the Computer Science Labs I repository! This project is an exciting r
  - **Unlocking Secret Mode (PrimateKong+):**
    - Press the keys S, T, A, and R simultaneously on the main menu to access the hidden secret mode.
   
-## Contributors
+## Authors
 
 * [DelgadoDevT](https://github.com/DelgadoDevT)
 * [RIIverByte](https://github.com/RIIverByte)
