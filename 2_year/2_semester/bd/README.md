@@ -6,7 +6,7 @@
 
 The system is built using **MySQL** for the final database implementation and **Python** for data generation and migration tasks.
 
-## Contributors
+## Authors
 
 * [DelgadoDevT](https://github.com/DelgadoDevT)
 * [PaoComPlanta](https://github.com/paocomplanta)
