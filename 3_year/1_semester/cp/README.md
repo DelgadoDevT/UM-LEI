@@ -57,4 +57,24 @@ Special thanks to **José Nuno Oliveira** and the teaching staff for providing t
 
 ## Authors
 
-<table> <tr> <td align="center"><a href="https://github.com/josedasilva11"><img src="https://www.google.com/search?q=https://github.com/josedasilva11.png" width="100px;" alt=""/><br /><sub><b>José Silva</b></sub></a><br /></td> <td align="center"><a href="https://github.com/DelgadoDevT"><img src="https://www.google.com/search?q=https://github.com/DelgadoDevT.png" width="100px;" alt=""/><br /><sub><b>João Delgado</b></sub></a><br /></td> <td align="center"><a href="https://github.com/PaoComPlanta"><img src="https://www.google.com/search?q=https://github.com/PaoComPlanta.png" width="100px;" alt=""/><br /><sub><b>Simão Mendes</b></sub></a><br /></td> </tr> </table>
+<table>
+<tr>
+</td>
+<td align="center">
+<a href="https://github.com/josedasilva11">
+<img src="https://github.com/josedasilva11.png" width="100px;" alt="josedasilva11"/><br />
+<sub><b>josedasilva11</b></sub>
+</td>
+<td align="center">
+<a href="https://github.com/PaoComPlanta">
+<img src="https://github.com/PaoComPlanta.png" width="100px;" alt="PaoComPlanta"/><br />
+<sub><b>PaoComPlanta</b></sub>
+</a>
+</td>
+<td align="center">
+<a href="https://github.com/DelgadoDevT">
+<img src="https://github.com/DelgadoDevT.png" width="100px;" alt="DelgadoDevT"/><br />
+<sub><b>DelgadoDevT</b></sub>
+</a>
+</tr>
+</table>
