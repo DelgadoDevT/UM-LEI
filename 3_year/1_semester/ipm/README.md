@@ -10,3 +10,19 @@ The course explores the principles of user-centered design, prototyping, and usa
 
 ## Acknowledgements
 Several practical exercises and base project templates were provided by the teaching staff. The implementation of the frontend logic, component architecture, and interface styling was conducted as part of the course evaluation.
+
+<table>
+<tr>
+<td align="center">
+<a href="https://github.com/PaoComPlanta">
+<img src="https://github.com/PaoComPlanta.png" width="100px;" alt="PaoComPlanta"/><br />
+<sub><b>PaoComPlanta</b></sub>
+</a>
+</td>
+<td align="center">
+<a href="https://github.com/DelgadoDevT">
+<img src="https://github.com/DelgadoDevT.png" width="100px;" alt="DelgadoDevT"/><br />
+<sub><b>DelgadoDevT</b></sub>
+</a>
+</tr>
+</table>
