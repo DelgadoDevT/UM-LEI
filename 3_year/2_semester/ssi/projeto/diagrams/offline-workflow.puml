@@ -1,0 +1,37 @@
+@startuml
+title Sequência Completa de Mensagens Offline
+autonumber
+
+actor "Sender Client" as Sender
+participant "Sender Handler" as SH
+participant "Secure Chat Server" as Server
+participant "Recipient Handler" as RH
+database "SecureDB.offline_messages" as OfflineDB
+actor "Recipient Client" as Recipient
+
+Sender -> SH : SEND_MSG(recipient=B,\npayload_json cifrado)
+SH -> Server : pedido de encaminhamento
+
+alt recipient online
+  Server -> RH : lookup sessão de B
+  RH -> Recipient : DELIVER_MSG(payload_json)
+else recipient offline
+  Server -> OfflineDB : INSERT(recipient, sender,\npayload_json, queued_at)
+  Server --> SH : ACK armazenamento
+end
+
+Recipient -> RH : login + FETCH_OFFLINE
+RH -> Server : pedido de entrega pendente
+Server -> OfflineDB : SELECT ORDER BY queued_at
+OfflineDB --> Server : lista ordenada
+Server -> OfflineDB : DELETE mensagens entregues
+Server --> RH : lista final
+RH -> Recipient : OFFLINE_MESSAGES([...])
+
+alt nova mensagem chega durante entrega
+  Sender -> SH : SEND_MSG para B
+  SH -> Server : encaminhar
+  Server -> RH : DELIVER_MSG em tempo real
+end
+
+@enduml

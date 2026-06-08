@@ -1,0 +1,11 @@
+Response to extra questions 3:
+
+1. Use one mutex per filemeta, and only keep the index mutex
+to acess the hash table.
+
+2. Use a condition per filemeta.
+
+3. See code in metanode.c
+
+4. For this type of indexing system Hash Tables are the best 
+options comparatively to queues, linked lists and trees.

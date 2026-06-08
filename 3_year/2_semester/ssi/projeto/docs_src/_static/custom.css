@@ -1,0 +1,85 @@
+/* Ficheiro: docs_src/_static/custom.css */
+
+/* Força o conteúdo a ocupar a largura total disponível */
+.wy-nav-content {
+    max-width: none !important;
+}
+
+/* Opcional: Ajusta as tabelas para não ficarem espremidas */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+    white-space: normal;
+}
+
+/* --- Melhorias Estéticas (Secure Chat) --- */
+
+/* Sidebar Geral e Links */
+.wy-side-nav-search, .wy-nav-top {
+    background-color: #111827 !important; /* Tailwind gray-900 para a barra do título */
+    border-bottom: 2px solid #2563eb;
+}
+
+.wy-side-nav-search input[type="text"] {
+    border-radius: 8px;
+    border: 1px solid #374151;
+    background-color: #1f2937;
+    color: #f3f4f6;
+    padding: 8px;
+}
+
+.wy-side-nav-search input[type="text"]:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    outline: none;
+}
+
+.wy-side-nav-search > a:hover {
+    background: transparent !important;
+}
+
+.wy-menu-vertical a {
+    color: #d1d5db !important; /* Texto mais suave na sidebar */
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #1f2937 !important; /* Cor de hover nas tabs */
+    color: #ffffff !important;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.wy-menu-vertical li.current > a {
+    background-color: #374151 !important;
+    color: #ffffff !important;
+    border-right: 4px solid #2563eb;
+}
+
+.wy-nav-side {
+    background-color: #030712 !important; /* Fundo mais escuro para a sidebar */
+}
+
+/* Bloco de Código e Texto Principal */
+body {
+    color: #374151;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #111827;
+    font-weight: 600;
+}
+
+a {
+    color: #2563eb;
+}
+
+a:hover {
+    color: #1d4ed8;
+}
+
+.highlight {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}

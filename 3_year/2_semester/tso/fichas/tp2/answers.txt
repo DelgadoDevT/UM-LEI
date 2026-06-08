@@ -1,0 +1,14 @@
+- 2.1 
+Bad file descritptors.
+Only open fd with read permission
+
+- 2.2
+1.36 min
+Write only one char per write call
+
+- 2.3
+Program is spamming random_string calls
+
+- 2.4
+tso : TTY=pts/11 ; PWD=/home/tso/tso/tp2 ; USER=root ; COMMAND=/usr/bin/echo malicious!
+it uses sudo acess to run echo command printing the word "malicious!"

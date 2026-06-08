@@ -1,0 +1,7 @@
+PROJECT_NAME           = "Computer Graphics Project"
+INPUT                  = src include
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+GENERATE_LATEX         = NO
+GENERATE_HTML          = YES
+HTML_OUTPUT            = docs

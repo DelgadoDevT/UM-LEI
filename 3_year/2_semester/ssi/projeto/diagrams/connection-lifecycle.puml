@@ -1,0 +1,64 @@
+@startuml
+title Sequência Completa de Ciclo de Vida da Ligação
+autonumber
+
+actor "Cliente" as Client
+participant "ChatServer" as Server
+participant "ConnectionHandler" as Handler
+participant "Handshake" as HS
+participant "SecureDB" as DB
+collections "connected_clients" as Online
+
+Client -> Server : TCP connect
+Server -> Handler : criar handler(reader, writer, addr)
+activate Handler
+
+Handler -> HS : server_handshake(reader, writer, db, ca)
+activate HS
+HS -> DB : get_user_hash(...) / store_user(...)
+HS --> Handler : (transport_key_recv,\ntransport_key_send, username)
+deactivate HS
+
+alt autenticação falha
+  Handler -> Client : AUTH_FAIL / close
+  Handler -> Handler : fechar socket
+  deactivate Handler
+else autenticação com sucesso
+  Handler -> Online : add(username -> handler)
+
+  Handler -> DB : pop_offline_messages(username)
+  DB --> Handler : lista de mensagens
+  Handler -> Client : OFFLINE_MESSAGES(lista)
+
+  loop enquanto ligação ativa
+    Client -> Handler : mensagem cifrada (framed)
+    Handler -> Handler : dispatch por MsgType
+
+    alt SEND_MSG
+      alt destinatário online
+        Handler -> Online : lookup(recipient)
+        Online --> Handler : recipient_handler
+        Handler -> Client : (via recipient_handler)\nDELIVER_MSG(payload_json)
+      else destinatário offline
+        Handler -> DB : store_offline_message(recipient,\nsender, payload_json)
+      end
+    else FETCH_BUNDLE
+      Handler -> DB : get_user_bundle(target)
+      alt bundle existe
+        DB --> Handler : bundle + cert
+        Handler -> Client : BUNDLE_RESPONSE
+      else bundle não existe
+        Handler -> Client : BUNDLE_NOT_FOUND
+      end
+    else FETCH_OFFLINE
+      Handler -> DB : pop_offline_messages(username)
+      Handler -> Client : OFFLINE_MESSAGES(lista)
+    end
+  end
+
+  Handler -> Online : remove(username)
+  Handler -> Handler : fechar socket
+  deactivate Handler
+end
+
+@enduml

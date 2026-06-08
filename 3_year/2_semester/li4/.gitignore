@@ -1,0 +1,71 @@
+# Java e Binários
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Gradle e Build
+.gradle/
+build/
+bin/
+out/
+!gradle-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# VS Code
+.vscode/
+.history/
+
+# Docker e Logs
+*.log
+.docker/
+# docker-compose.yml - NAO IGNORAR (necessario para o projeto)
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Projeto (Resumo Implementacao)
+# resumen_implementacao/ - Manter se for para entrega, ignorar se for so para revisao local
+# Por agora nao ignoro para facilitar a tua consulta
+
+# Dados e Scripts Temporários
+population_output/
+fix_exceptions.py
+*.csv
+*.sql
+!database/*.sql # Não ignorar os scripts de esquema originais
+
+frontend/node_modules
+frontend/dist/
+frontend/.vite/
+
+# ============================================================
+# SEGURANÇA — Chaves RSA, certificados e ficheiros sensíveis
+# ============================================================
+# NUNCA commitar chaves criptográficas nem cookies de sessão.
+# Gera as chaves localmente seguindo as instruções em keys/README.md
+# e configura as variáveis de ambiente a partir de .env (ver .env.example).
+private_key.pem
+private_key.b64
+public_key.pem
+public_key.b64
+*.pem
+*.b64
+cookies.txt
+
+# Variáveis de ambiente locais (contêm segredos)
+.env
+.env.local
+.env.*.local
+conductor/

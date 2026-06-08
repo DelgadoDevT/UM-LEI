@@ -1,0 +1,167 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+application {
+    mainClass = 'pt.uminho.taki.api.NodeApiLauncher'
+}
+
+group = 'pt.uminho.taki'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5
+    testImplementation platform('org.junit:junit-bom:5.10.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    
+    // Mockito
+    testImplementation 'org.mockito:mockito-core:5.8.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.8.0'
+
+    // H2 Database
+    testImplementation 'com.h2database:h2:2.2.224'
+
+    // PostgreSQL
+    implementation 'org.postgresql:postgresql:42.7.1'
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+    implementation 'org.mindrot:jbcrypt:0.4'
+
+    // Testcontainers
+    testImplementation 'org.testcontainers:testcontainers:1.19.3'
+    testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
+    testImplementation 'org.testcontainers:postgresql:1.19.3'
+
+    // Compile time annotations
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // REST API bootstrap
+    implementation 'io.javalin:javalin:5.6.3'
+    testImplementation 'io.javalin:javalin-testtools:5.6.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.0'
+    implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+    implementation 'org.glassfish.expressly:expressly:5.0.0'
+    implementation 'org.slf4j:slf4j-simple:2.0.7'
+
+    // PDF Generation
+    implementation 'com.github.librepdf:openpdf:1.3.39'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        showStandardStreams = true
+    }
+    // Load .env for tests
+    doFirst {
+        def envFile = file('../.env')
+        if (envFile.exists()) {
+            envFile.eachLine { line ->
+                line = line.trim()
+                if (line.isEmpty() || line.startsWith('#')) return
+                def idx = line.indexOf('=')
+                if (idx > 0) {
+                    def key = line.substring(0, idx).trim()
+                    def value = line.substring(idx + 1).trim()
+                    if (value.startsWith('"') && value.endsWith('"') && value.length() > 1) {
+                        value = value.substring(1, value.length() - 1)
+                    }
+                    if (System.getenv(key) == null) {
+                        systemProperty key, value
+                        environment key, value
+                    }
+                }
+            }
+        }
+    }
+}
+
+run {
+    // Load .env
+    doFirst {
+        def envFile = file('../.env')
+        if (envFile.exists()) {
+            envFile.eachLine { line ->
+                line = line.trim()
+                if (line.isEmpty() || line.startsWith('#')) return
+                def idx = line.indexOf('=')
+                if (idx > 0) {
+                    def key = line.substring(0, idx).trim()
+                    def value = line.substring(idx + 1).trim()
+                    if (value.startsWith('"') && value.endsWith('"') && value.length() > 1) {
+                        value = value.substring(1, value.length() - 1)
+                    }
+                    if (System.getenv(key) == null) {
+                        systemProperty key, value
+                        environment key, value
+                    }
+                }
+            }
+        }
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
+
+task performanceTest(type: Test) {
+    description = 'Runs performance (load and stress) tests.'
+    group = 'verification'
+    
+    // Configurar para usar as classes de performance
+    filter {
+        includeTestsMatching "pt.uminho.taki.performance.*"
+    }
+    
+    useJUnitPlatform()
+    
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+    
+    // Carregar variáveis de ambiente do .env como no task test padrão
+    doFirst {
+        def envFile = file('../.env')
+        if (envFile.exists()) {
+            envFile.eachLine { line ->
+                line = line.trim()
+                if (line.isEmpty() || line.startsWith('#')) return
+                def idx = line.indexOf('=')
+                if (idx > 0) {
+                    def key = line.substring(0, idx).trim()
+                    def value = line.substring(idx + 1).trim()
+                    if (value.startsWith('"') && value.endsWith('"') && value.length() > 1) {
+                        value = value.substring(1, value.length() - 1)
+                    }
+                    if (System.getenv(key) == null) {
+                        systemProperty key, value
+                        environment key, value
+                    }
+                }
+            }
+        }
+        // Forçar modo local para os testes de performance para evitar bloqueios de segurança
+        systemProperty "APP_MODE", "local"
+        environment "APP_MODE", "local"
+    }
+}

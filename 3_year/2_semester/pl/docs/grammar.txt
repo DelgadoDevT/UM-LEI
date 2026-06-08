@@ -1,0 +1,121 @@
+==============================================
+Fortran 77 Compiler - Grammar Rules (BNF-like)
+==============================================
+
+program : main_program subprograms_opt
+program : subprograms
+subprograms_opt : subprograms
+               | empty
+subprograms : subprogram
+subprograms : subprograms subprogram
+subprogram : function_subprogram
+          | subroutine_subprogram
+program_header : PROGRAM IDENTIFIER
+main_program : program_header statements END
+            | program_header END
+function_header : type FUNCTION IDENTIFIER LPAREN parameters RPAREN
+function_header : FUNCTION IDENTIFIER LPAREN parameters RPAREN
+function_subprogram : function_header statements END
+                   | function_header END
+subroutine_header : SUBROUTINE IDENTIFIER LPAREN parameters RPAREN
+subroutine_header : SUBROUTINE IDENTIFIER
+subroutine_subprogram : subroutine_header statements END
+                     | subroutine_header END
+parameters : parameter_list
+          | empty
+parameter_list : IDENTIFIER
+parameter_list : parameter_list COMMA IDENTIFIER
+type : INTEGER
+    | REAL
+    | LOGICAL
+statements : statement
+statements : statements statement
+statement : label_statement
+         | unlabeled_statement
+label_statement : INTEGER_CONST unlabeled_statement
+unlabeled_statement : declaration
+                   | assignment
+                   | print_statement
+                   | read_statement
+                   | do_statement
+                   | if_statement
+                   | goto_statement
+                   | continue_statement
+                   | call_statement
+                   | return_statement
+                   | stop_statement
+                   | dimension_statement
+dimension_statement : DIMENSION dimension_list
+dimension_list : array_decl
+dimension_list : dimension_list COMMA array_decl
+declaration : type var_list
+var_list : var_decl
+var_list : var_list COMMA var_decl
+var_decl : IDENTIFIER
+var_decl : array_decl
+array_decl : IDENTIFIER LPAREN bound_list RPAREN
+bound_list : bound
+bound_list : bound_list COMMA bound
+bound : expression
+bound : expression COLON expression
+assignment : IDENTIFIER EQUALS expression
+assignment : IDENTIFIER LPAREN expression_list RPAREN EQUALS expression
+print_statement : PRINT ASTERISK COMMA print_list
+               | PRINT ASTERISK
+print_list : expression
+print_list : print_list COMMA expression
+read_statement : READ ASTERISK COMMA var_ref_list
+              | READ ASTERISK
+var_ref_list : var_ref
+var_ref_list : var_ref_list COMMA var_ref
+var_ref : IDENTIFIER
+var_ref : IDENTIFIER LPAREN expression_list RPAREN
+do_statement : DO INTEGER_CONST IDENTIFIER EQUALS expression COMMA expression
+do_statement : DO INTEGER_CONST IDENTIFIER EQUALS expression COMMA expression COMMA expression
+if_statement : IF LPAREN expression RPAREN unlabeled_statement
+if_statement : IF LPAREN expression RPAREN THEN statements ENDIF
+            | IF LPAREN expression RPAREN THEN ENDIF
+            | IF LPAREN expression RPAREN THEN statements ELSE statements ENDIF
+            | IF LPAREN expression RPAREN THEN statements ELSE ENDIF
+            | IF LPAREN expression RPAREN THEN ELSE statements ENDIF
+            | IF LPAREN expression RPAREN THEN ELSE ENDIF
+goto_statement : GOTO INTEGER_CONST
+continue_statement : CONTINUE
+call_statement : CALL IDENTIFIER
+              | CALL IDENTIFIER LPAREN RPAREN
+              | CALL IDENTIFIER LPAREN argument_list RPAREN
+return_statement : RETURN
+stop_statement : STOP
+argument_list : expression
+argument_list : argument_list COMMA expression
+expression_list : expression
+expression_list : expression_list COMMA expression
+expression : expression OR expression
+          | expression AND expression
+          | expression EQV expression
+          | expression NEQV expression
+          | expression EQ expression
+          | expression NE expression
+          | expression LT expression
+          | expression LE expression
+          | expression GT expression
+          | expression GE expression
+          | expression PLUS expression
+          | expression MINUS expression
+          | expression ASTERISK\ expression
+          | expression DIVIDE expression
+          | expression POWER expression
+          | expression CONCAT expression
+expression : NOT expression
+expression : PLUS expression
+expression : MINUS expression
+expression : LPAREN expression RPAREN
+expression : IDENTIFIER
+expression : IDENTIFIER LPAREN expression_list RPAREN
+expression : INTEGER_CONST
+          | REAL_CONST
+          | DOUBLE_PRECISION_CONST
+          | LOGICAL_CONST
+          | CHARACTER_CONST
+empty :
+

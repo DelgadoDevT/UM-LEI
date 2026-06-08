@@ -1,0 +1,24 @@
+RowID                               -> Row identification
+Date/Time                           -> Date timestamp with Time
+Cogeneration (kWh)                  -> Energy Production in Cogeneration Production Units (KiloWattHours)
+Wind (kWh)                          -> Energy Production in Wind Production Units (KiloWattHours)
+Photovoltaics (kWh)                 -> Energy Production in Photovoltaics Production Units (KiloWattHours)
+Hydro (kWh)                         -> Energy Production in Hydro Production Units (KiloWattHours)
+Other Technologies (kWh)            -> Energy Production in Other Technologies Production Units (KiloWattHours)
+Distribution Network (kWh)          -> Total Energy Production in Distribution Network (KiloWattHours)
+temperature_2m (°C)                 -> Outside Temperature above 2 metres
+relative_humidity_2m (%)            -> Outside Relative Humidity above 2 metres
+precipitation (mm)                  -> Outside Precipitation (Millimetres)
+rain (mm)                           -> Outside Rainfall (Millimetres)
+snowfall (cm)                       -> Outside Snowfall (Centimetres)
+cloud_cover (%)                     -> Outside Cloud Cover (Percentage)
+Wind_Direction_10m                  -> Qualitative Wind Direction above 10 metres
+wind_speed_10m (km/h)               -> Outside Wind Speed above 10 metres (Kilometres/Hour)
+Wind_Direction_100m                 -> Qualitative Wind Direction above 100 metres
+wind_speed_100m (km/h)              -> Outside Wind Speed above 100 metres (Kilometres/Hour)
+direct_radiation (W/m²)             -> Radiation emitted directly by Sun (Watts/Metre Squarred)
+shortwave_radiation (W/m²)          -> ShortWave Radiation emitted by Sun (Watts/Metre Squarred)
+diffuse_radiation (W/m²)            -> Diffuse Radiation emitted by Sun (Watts/Metre Squarred)
+direct_normal_irradiance (W/m²)     -> Radiation beam emitted by Sun (Watts/Metre Squarred)
+terrestrial_radiation (W/m²)        -> Radiation emitted by Ground (Watts/Metre Squarred)
+Productions                         -> Production rate divided in classes (Target)

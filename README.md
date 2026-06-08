@@ -4,23 +4,36 @@
 This repository serves as a comprehensive compilation of academic work undertaken throughout the duration of the Computer Science and Engineering degree program at the University of Minho. It encompasses a diverse array of projects, assignments, and achievements that reflect the depth and breadth of knowledge and skills acquired during the course of the program.
 
 ## Overview
+
 ### 1st Year - 1st Semester
 - [Functional Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/1_semester/pf)
 - [Computer Science Labs I](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/1_semester/li1)
+
 ### 1st Year - 2nd Semester
 - [Imperative Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/2_semester/pi)
 - [Computer Science Labs II](https://github.com/DelgadoDevT/UM-LEI/tree/main/1_year/2_semester/li2)
+
 ### 2nd Year - 1st Semester
 - [Algorithms and Complexity](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/1_semester/algc)
 - [Computer Science Labs III](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/1_semester/li3)
+
 ### 2nd Year - 2nd Semester
 - [Databases](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/bd)
 - [Object-Oriented Programming](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/poo)
 - [Operating Systems](https://github.com/DelgadoDevT/UM-LEI/tree/main/2_year/2_semester/so)
-### 3nd Year - 1st Semester
+
+### 3rd Year - 1st Semester
 - [Computer Communications](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/cc)
 - [Software Systems Development](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/dss)
 - [Artificial Intelligence](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/ia)
 - [Human-Computer Interaction](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/ipm) 
 - [Distributed Systems](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/sd)
 - [Program Design by Calculation](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/1_semester/cp)
+
+### 3rd Year - 2nd Semester
+- [Computer Science Labs IV](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/2_semester/li4)
+- [Computer Graphics](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/2_semester/cg)
+- [Information Systems Security](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/2_semester/ssi)
+- [Language Processing](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/2_semester/pl)
+- [Intelligent Learning and Decision Making](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/2_semester/adi)
+- [Operating System Technologies](https://github.com/DelgadoDevT/UM-LEI/tree/main/3_year/2_semester/tso)

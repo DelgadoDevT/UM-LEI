@@ -1,0 +1,76 @@
+START
+    PUSHN 4
+    PUSHS "INTRODUZA UM NUMERO DECIMAL INTEIRO:"
+    WRITES
+    WRITELN
+    READ
+    ATOI
+    STOREG 0
+    PUSHI 2
+    STOREG 1
+DOSTART1:
+    PUSHG 1
+    PUSHI 9
+    INFEQ
+    JZ DOEND2
+    PUSHI 0
+    PUSHG 0
+    PUSHG 1
+    PUSHA CONVRT
+    CALL
+    POP 2
+    STOREG 2
+    PUSHS "BASE "
+    WRITES
+    PUSHG 1
+    WRITEI
+    PUSHS ": "
+    WRITES
+    PUSHG 2
+    WRITEI
+    WRITELN
+    PUSHG 1
+    PUSHI 1
+    ADD
+    STOREG 1
+    JUMP DOSTART1
+DOEND2:
+STOP
+
+CONVRT:
+    PUSHN 4
+    PUSHI 0
+    STOREL 3
+    PUSHI 1
+    STOREL 2
+    PUSHL -2
+    STOREL 0
+LABEL20:
+    PUSHL 0
+    PUSHI 0
+    SUP
+    JZ ENDIF3
+    PUSHL 0
+    PUSHL -1
+    MOD
+    STOREL 1
+    PUSHL 3
+    PUSHL 1
+    PUSHL 2
+    MUL
+    ADD
+    STOREL 3
+    PUSHL 0
+    PUSHL -1
+    DIV
+    STOREL 0
+    PUSHL 2
+    PUSHI 10
+    MUL
+    STOREL 2
+    JUMP LABEL20
+ENDIF3:
+    PUSHL 3
+    STOREL -3
+    POP 4
+    RETURN

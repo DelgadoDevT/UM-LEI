@@ -1,0 +1,29 @@
+@startuml
+title Fluxo PKI: Emissão e Validação de Certificados
+
+start
+
+:Registo de utilizador (username + chave pública de identidade);
+:Servidor valida pedido e cria registo base;
+:CA emite certificado digital do utilizador;
+:Servidor guarda certificado em persistência;
+:Servidor responde AUTH_OK;
+
+if (Outro cliente pede bundle?) then (sim)
+  :Servidor devolve bundle público + cert_pem;
+  :Cliente obtém certificado raiz da CA (pinning);
+  :Cliente verifica assinatura e validade do certificado recebido;
+  if (Certificado válido?) then (sim)
+    :Aceita chave pública associada ao utilizador;
+    :Prossegue para estabelecimento de sessão;
+  else (não)
+    :Rejeita identidade remota;
+    :Aborta tentativa de sessão;
+  endif
+else (não)
+  :Aguardar pedidos de diretório;
+endif
+
+stop
+
+@enduml

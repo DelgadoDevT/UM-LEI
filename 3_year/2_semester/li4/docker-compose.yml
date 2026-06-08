@@ -1,0 +1,62 @@
+services:
+  # Base de Dados da "Loja" (Local)
+  db_local_1:
+    image: postgres:16-alpine
+    container_name: li4_db_local_1
+    environment:
+      POSTGRES_DB: taki_local_db_1
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata_local_1:/var/lib/postgresql/data
+      - ./database/schema_postgres.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./database/logica_ativa_postgres.sql:/docker-entrypoint-initdb.d/2-logica_ativa.sql
+      - ./database/sincronizacao_postgres.sql:/docker-entrypoint-initdb.d/3-sincronizacao.sql
+      - ./database/user_roles.sql:/docker-entrypoint-initdb.d/4-roles.sql
+      - ./database/indices_postgres.sql:/docker-entrypoint-initdb.d/5-indices.sql
+
+  # Backend (Javalin)
+  backend:
+    image: gradle:8.6-jdk21
+    container_name: li4_backend
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace/backend
+    environment:
+      - TAKI_DB_URL=jdbc:postgresql://db_local_1:5432/taki_local_db_1
+      - TAKI_DB_USER=admin
+      - TAKI_DB_PASSWORD=password123
+      - TAKI_JWT_PUBLIC_KEY=${TAKI_JWT_PUBLIC_KEY}
+      - TAKI_JWT_PRIVATE_KEY=${TAKI_JWT_PRIVATE_KEY}
+      - APP_MODE=${APP_MODE:-LOCAL}
+      - TAKI_CORS_ORIGIN=http://localhost:5173,http://127.0.0.1:5173,http://192.168.1.82:5173
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    command: ./gradlew run
+    depends_on:
+      - db_local_1
+
+  # Frontend (Vite)
+  frontend:
+    image: node:20-alpine
+    container_name: li4_frontend
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace/frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - TAKI_LOCAL_API_PORT=8080
+      - TAKI_GLOBAL_API_PORT=8081
+      - VITE_LOCAL_API_TARGET=http://backend:8080
+      - VITE_GLOBAL_API_TARGET=http://backend:8081
+      - APP_MODE=${APP_MODE:-LOCAL}
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata_local_1:

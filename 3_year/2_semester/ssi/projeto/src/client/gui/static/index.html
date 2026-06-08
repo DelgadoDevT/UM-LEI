@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureFlow | E2EE Messaging</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+
+<body class="dark-theme">
+  <div id="authOverlay" class="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="logo-icon">🔒</div>
+        <h1>SecureFlow</h1>
+        <p>End-to-End Encrypted Chat</p>
+      </div>
+      <div class="status-indicator">
+        <span id="connectionBadge" class="status-dot disconnected"></span>
+        <span id="connectionText">Disconnected</span>
+      </div>
+      <form id="authForm" class="auth-form">
+        <div class="input-group">
+          <label for="authUsername">Username</label>
+          <input id="authUsername" type="text" placeholder="Enter your username" required autocomplete="username"
+            autocapitalize="none" autocorrect="off" spellcheck="false" />
+        </div>
+        <div class="input-group">
+          <label for="authPassword">Password</label>
+          <input id="authPassword" type="password" placeholder="Enter your password" required
+            autocomplete="current-password" />
+        </div>
+        <div class="auth-actions">
+          <button type="button" id="btnLogin" class="btn-primary">Login</button>
+          <button type="button" id="btnRegister" class="btn-secondary">Create Account</button>
+        </div>
+        <div class="auth-footer">
+          <button type="button" id="btnConnect" class="btn-link">Initialize Connection</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <div class="user-profile">
+          <div class="avatar" id="userAvatar">U</div>
+          <div class="user-info">
+            <h3 id="currentUsername">Guest</h3>
+            <span id="authBadgeText">Not logged in</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="btnFetchOffline" title="Fetch offline messages">📥</button>
+          <button id="btnSettings" title="Settings">⚙️</button>
+        </div>
+      </header>
+
+      <div class="search-container">
+        <div class="search-bar">
+          <span>🔍</span>
+          <input type="text" id="conversationSearch" placeholder="Search or start new chat" autocapitalize="none"
+            autocorrect="off" spellcheck="false" />
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="chats">Chats</button>
+        <button class="tab-btn" data-tab="groups">Groups</button>
+        <button class="tab-btn" data-tab="invites">Invites <span id="inviteCount" class="count-badge"
+            style="display:none">0</span></button>
+      </div>
+
+      <div class="sidebar-content">
+        <div id="tab-chats" class="tab-pane active">
+          <div class="add-action">
+            <input id="contactInput" type="text" placeholder="Add contact by username..." autocapitalize="none"
+              autocorrect="off" spellcheck="false" />
+            <button id="btnAddContact">+</button>
+          </div>
+          <ul id="contactsList" class="conversation-list"></ul>
+        </div>
+        <div id="tab-groups" class="tab-pane">
+          <div class="add-action">
+            <input id="groupName" type="text" placeholder="New group name..." autocapitalize="none" autocorrect="off"
+              spellcheck="false" />
+            <button id="btnCreateGroup">+</button>
+          </div>
+          <ul id="groupsList" class="conversation-list"></ul>
+        </div>
+        <div id="tab-invites" class="tab-pane">
+          <ul id="invitesList" class="conversation-list"></ul>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-chat">
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">💬</div>
+        <h2>Select a chat to start messaging</h2>
+        <p>Your messages are secured with end-to-end encryption.</p>
+      </div>
+
+      <div id="chatInterface" class="chat-interface" style="display:none">
+        <header class="chat-header">
+          <div class="chat-info">
+            <div class="avatar mini" id="activeAvatar">?</div>
+            <div>
+              <h3 id="activeChatName">Chat Name</h3>
+              <span id="activeChatStatus" class="subtle">Encryption Active</span>
+            </div>
+          </div>
+          <div class="chat-actions" id="activeGroupActions" style="display:none">
+            <input id="groupUserInput" type="text" placeholder="username" class="mini-input" autocapitalize="none"
+              autocorrect="off" spellcheck="false" />
+            <button id="btnInvite" class="btn-icon">Add</button>
+            <button id="btnRemove" class="btn-icon danger">Kick</button>
+          </div>
+        </header>
+
+        <div id="messageTimeline" class="message-timeline">
+          <!-- Messages will be injected here -->
+        </div>
+
+        <footer class="chat-input-area">
+          <div class="input-wrapper">
+            <button class="btn-icon">📎</button>
+            <textarea id="msgInput" placeholder="Type a message..." rows="1"></textarea>
+            <button id="btnSend" class="btn-send">
+              <svg viewBox="0 0 24 24" width="24" height="24">
+                <path fill="currentColor"
+                  d="M1.101 21.757L23.8 12.028L1.101 2.3l.011 7.912l13.623 1.816L1.112 13.845v7.912z"></path>
+              </svg>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <div id="notificationToast" class="toast"></div>
+  </div>
+
+  <!-- Hidden state trackers for logic -->
+  <input type="hidden" id="msgRecipient" />
+  <input type="hidden" id="groupIdInput" />
+  <input type="hidden" id="historyUser" />
+
+  <script src="/static/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+stress-ng --cpu 0 --timeout 1m --metrics --times
+99.31% user time
+0.03% system time
+99.34% real time
+
+stress-ng --cpu 2 --timeout 1m --metrics --times
+49.96% user time
+0.001% system time
+49.96% real time
+
+stress-ng --vm 2 --vm-bytes 2G --timeout 1m --metrics --times
+37.85% user time
+12.10% system time
+49.95% real time
+
+stress-ng --fork 8 --timeout 1m --metrics --times
+35.74% user time
+62.81% system time
+98.55% real time
+
+stress-ng --mq 0 -t 30s --timeout 1m --metrics --times --perf
+14.31% user time
+83.12% system time
+97.42% real time
+
+stress-ng --cpu 4 --vm 2 --fork 8 --mq 3 --timeout 1m --metrics --times --perf
+51.39% user time
+48.06% system time
+99.46% real time
+
+Question 1:
+stress-ng --mq 0 -t 30s --timeout 1m --metrics --times --perf
+generates the highest level of kernel activity between all the commands used (83.12%)
+this effect is produced because every message sent or received requires an expensive 
+system call and context switching to move data between processes.
+
+Question 2:
+The memory test has high CPU utilization because the processor must constantly execute 
+instructions to write data to RAM and manage the "page faults" triggered when the kernel 
+allocates physical memory addresses.
+
+

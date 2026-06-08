@@ -1,0 +1,30 @@
+[
+  {
+    "username": "owner",
+    "passwordSalt": "taki-owner-salt-2026",
+    "passwordHash": "f279ac8ce241095865e5f3f9f8a1fb9c56b8238afdb34032a5e36771441c1d24",
+    "name": "Carlos Oliveira",
+    "role": "Proprietário da Cadeia"
+  },
+  {
+    "username": "admin",
+    "passwordSalt": "taki-admin-salt-2026",
+    "passwordHash": "7d6cdb587633fcf13221f81127ab9d409fae4459c94761d0de394c8fcff07803",
+    "name": "Administrador",
+    "role": "Administrador do Sistema"
+  },
+  {
+    "username": "manager",
+    "passwordSalt": "taki-manager-salt-2026",
+    "passwordHash": "762d6745e566c1826c6d5ca2c4ddd27ab495f343925a83a2268aaad2eb91eae5",
+    "name": "João Silva",
+    "role": "Gerente de Loja"
+  },
+  {
+    "username": "cashier",
+    "passwordSalt": "taki-cashier-salt-2026",
+    "passwordHash": "3b549701ed937941cf54f311e007b0a37fafecd54a0f448ab630aa5f7331b0bb",
+    "name": "Maria Costa",
+    "role": "Operador de Caixa"
+  }
+]

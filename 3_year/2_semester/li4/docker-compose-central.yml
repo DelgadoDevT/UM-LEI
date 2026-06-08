@@ -1,0 +1,62 @@
+services:
+  # Base de Dados Central (Sede)
+  db_central:
+    image: postgres:16-alpine
+    container_name: li4_db_central
+    environment:
+      POSTGRES_DB: taki_central_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata_central:/var/lib/postgresql/data
+      - ./database/schema_postgres.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./database/logica_ativa_postgres.sql:/docker-entrypoint-initdb.d/2-logica_ativa.sql
+      - ./database/sincronizacao_postgres.sql:/docker-entrypoint-initdb.d/3-sincronizacao.sql
+      - ./database/user_roles.sql:/docker-entrypoint-initdb.d/4-roles.sql
+      - ./database/indices_postgres.sql:/docker-entrypoint-initdb.d/5-indices.sql
+
+  # Backend (Javalin) configurado para a Sede
+  backend:
+    image: gradle:8.6-jdk21
+    container_name: li4_backend_central
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace/backend
+    environment:
+      - TAKI_DB_URL=jdbc:postgresql://db_central:5432/taki_central_db
+      - TAKI_DB_USER=admin
+      - TAKI_DB_PASSWORD=password123
+      - TAKI_JWT_PUBLIC_KEY=${TAKI_JWT_PUBLIC_KEY}
+      - TAKI_JWT_PRIVATE_KEY=${TAKI_JWT_PRIVATE_KEY}
+      - APP_MODE=CENTRAL
+      - TAKI_CORS_ORIGIN=http://localhost:5173
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    command: ./gradlew run
+    depends_on:
+      - db_central
+
+  # Frontend (Vite) configurado para a Sede
+  frontend:
+    image: node:20-alpine
+    container_name: li4_frontend_central
+    volumes:
+      - .:/workspace:cached
+    working_dir: /workspace/frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - TAKI_LOCAL_API_PORT=8080
+      - TAKI_GLOBAL_API_PORT=8081
+      - VITE_LOCAL_API_TARGET=http://backend:8080
+      - VITE_GLOBAL_API_TARGET=http://backend:8081
+      - APP_MODE=CENTRAL
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata_central:

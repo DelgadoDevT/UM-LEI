@@ -1,0 +1,7 @@
+LexToken(PROGRAM, 'PROGRAM',1,6)
+LexToken(IDENTIFIER, 'HELLO',1,14)
+LexToken(PRINT, 'PRINT',2,6)
+LexToken(ASTERISK, '*',2,12)
+LexToken(COMMA, ',',2,13)
+LexToken(CHARACTER_CONST, 'Ola, Mundo!',2,15)
+LexToken(END, 'END',3,6)

@@ -1,0 +1,36 @@
+@startuml
+title Arquitetura do Serviço Central
+
+skinparam componentStyle rectangle
+left to right direction
+
+actor "Cliente" as Client
+
+component "Serviço TCP\n(ChatServer)" as Server
+component "Gestor de Sessão\n(ConnectionHandler)" as Handler
+component "Autoridade de Certificação\n(CertificateAuthority)" as CA
+database "Persistência\nSecureDB / SQLite" as DB
+collections "Ficheiros CA\n(chave raiz, cert raiz)" as CAStore
+
+Client --> Server : ligação TCP
+Server --> Handler : delega sessão por cliente
+Handler --> DB : utilizadores / prekeys /\ncertificados / fila offline
+Handler --> CA : emissão de certificado\nno registo
+CA --> CAStore : carregar/gravar material raiz
+
+note bottom of Server
+Responsabilidades:
+- aceitar conexões concorrentes
+- manter estado online/offline
+- coordenar routing cifrado
+end note
+
+note bottom of DB
+Persistência operacional:
+- users
+- onetime_prekeys
+- certificates
+- offline_messages
+end note
+
+@enduml

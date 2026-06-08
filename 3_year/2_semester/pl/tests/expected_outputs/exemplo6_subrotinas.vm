@@ -1,0 +1,29 @@
+START
+    PUSHN 1
+    PUSHI 5
+    ALLOCN
+    STOREG 0
+    PUSHG 0
+    PUSHI 1
+    PUSHI 1
+    SUB
+    PUSHI 10
+    STOREN
+    PUSHG 0
+    PUSHI 5
+    PUSHA MYSUB
+    CALL
+    POP 2
+STOP
+
+MYSUB:
+    PUSHS "VALOR: "
+    WRITES
+    PUSHL -2
+    PUSHI 1
+    PUSHI 1
+    SUB
+    LOADN
+    WRITEI
+    WRITELN
+    RETURN

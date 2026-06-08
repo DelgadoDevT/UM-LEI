@@ -1,0 +1,5 @@
+START
+    PUSHI 210
+    WRITEF
+    WRITELN
+STOP
